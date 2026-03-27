@@ -4,9 +4,9 @@ A Claude Code skill that turns your X/Twitter bookmarks into actionable signals,
 
 Bookmark interesting posts on X. Run `/no-cap`. Get a filtered digest of what actually matters — structured markdown for your agents, styled HTML email for you.
 
-<img src="https://github.com/user-attachments/assets/2f2878c3-0a85-40b0-a340-cb0d1bbce15c" alt="No Cap running in Claude Code" width="100%">
-
 https://github.com/user-attachments/assets/4a4b6e96-ab40-4fe5-ad2c-8c4889c53537
+
+<img src="https://github.com/user-attachments/assets/2f2878c3-0a85-40b0-a340-cb0d1bbce15c" alt="No Cap running in Claude Code" width="100%">
 
 ## What This Does
 
