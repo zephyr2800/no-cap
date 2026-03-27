@@ -24,7 +24,7 @@ cd no-cap
 ./install.sh
 ```
 
-Requires Node.js 18+ and Chrome (logged into X).
+Requires Node.js 18+ and Chrome (logged into X). Auto-login is **macOS only**. Windows/Linux users can use the manual cookie method below.
 
 ## Setup
 
@@ -36,18 +36,33 @@ In Claude Code:
 
 This walks you through:
 
-1. **Auth** — extracts X cookies from Chrome automatically (just type your Mac password)
+1. **Auth (macOS)** — extracts X cookies from Chrome automatically (just type your Mac password)
 2. **Output directory** — where signal files get saved (default: `~/no-cap-signals/`)
 3. **Interests** — topics you track (e.g. "AI agents", "fine-tuning LLMs")
 4. **Projects** — active projects to route signals to (e.g. "my-app — AI dashboard")
 5. **Email digest** — optional, needs a free [Resend](https://resend.com) API key (100 emails/day)
 
-Or set up auth manually:
+Or set up auth manually (macOS):
 
 ```bash
 cd no-cap
 npx tsx src/cli.ts auto-login
 ```
+
+### Windows / Linux
+
+Auto-login requires macOS. On Windows or Linux, grab your cookies manually:
+
+1. Open Chrome and go to [x.com](https://x.com)
+2. Press F12 (DevTools) > **Application** tab > **Cookies** > `https://x.com`
+3. Find and copy the values for `auth_token` and `ct0`
+4. Run:
+```bash
+cd no-cap
+npx tsx src/cli.ts update-cookies <your_auth_token> <your_ct0>
+```
+
+Cookies expire roughly every 30 days — just repeat these steps when you get an auth error.
 
 ## Usage
 

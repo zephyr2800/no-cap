@@ -20,16 +20,23 @@ Extract signal from noise. Pulls your recent X/Twitter bookmarks, filters out ma
 
 Guide the user through configuration:
 
-1. **Sign into X** — Run the auto-login command:
+1. **Sign into X** — Detect the user's platform and guide accordingly:
+
+   **macOS users** — Run the auto-login command:
    ```bash
    cd {repoPath} && npx tsx src/cli.ts auto-login
    ```
-   This extracts X cookies from your Chrome browser automatically. No manual copying needed. macOS will prompt for Keychain access on first use — click Allow. Requires Chrome installed and logged into X.
+   This extracts X cookies from Chrome automatically. macOS will prompt for Keychain access — click Allow.
 
-   **Manual alternative:** If auto-login doesn't work, get cookies from Chrome DevTools (Application > Cookies > x.com) and run:
+   **Windows / Linux users** — Auto-login is macOS only. Guide them through the manual method:
+   1. Open Chrome → go to x.com
+   2. Press F12 (DevTools) → Application tab → Cookies → `https://x.com`
+   3. Copy the values for `auth_token` and `ct0`
+   4. Run:
    ```bash
    cd {repoPath} && npx tsx src/cli.ts update-cookies <auth_token> <ct0>
    ```
+   Note: cookies expire roughly every 30 days. When the user sees an auth error, guide them to repeat these steps.
 
 2. **Output directory** — Ask where to save signals (default: `~/no-cap-signals/`)
 
